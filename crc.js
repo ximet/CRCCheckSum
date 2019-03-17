@@ -1,5 +1,15 @@
 const START_VALUE = 0xFFFFFFFF;
 
+const stringToArrayBytes = (string) => {
+    const bytes = new Uint32Array(string.length);
+
+    for (let i = 0; i < string.length; i++) {
+        bytes[i] = string.charCodeAt(i);
+    }
+
+    return bytes;
+}
+
 const generateCRCTable = () => {
     const COUNT_VALUES = 256;
     const CRC_TABLE = new Uint32Array(COUNT_VALUES);
@@ -18,7 +28,7 @@ const generateCRCTable = () => {
 
 
 
-console.log(generateCRCTable());
+console.log(stringToArrayBytes('test'));
 
 const crc = (data) => {
     
