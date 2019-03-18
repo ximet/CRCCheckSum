@@ -26,10 +26,19 @@ const generateCRCTable = () => {
     return CRC_TABLE;
 };
 
-
-
-console.log(stringToArrayBytes('test'));
-
-const crc = (data) => {
-    
+const computeSimpleCRC8 = (dataBytes) => {
+    const polynom = 0x1D;
+    let crc = dataBytes;
+    for (let i = 0; i < 8; i++) {
+        if ((crc & 0x80) !== 0) {
+            crc = (crc << 1) ^ polynom
+        } else {
+            crc = crc << 1
+        }
+    }
+    return crc;
 }
+
+
+
+console.log(computeSimpleCRC8(1100001000000000));
