@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-def crc(data):
+def crc8_oneByte(data):
     polynom = 0x1D;
     crc = data;
     for i in range (8):
@@ -12,4 +12,4 @@ def crc(data):
 
     return crc[-8:]
 
-print(crc("0b11000010"))
+print(crc8_oneByte("0b11000010"))
