@@ -15,6 +15,8 @@ def crc8_oneByte(data):
 
     return crc[-8:]
 
+# print(crc8_oneByte("0b11000010"))
+
 def crc8(bytearray):
     polynom = 0x1D
     crc = 0
@@ -24,4 +26,6 @@ def crc8(bytearray):
 
     return bin(crc)[-8:]
 
-print(crc8(bytearray([1, 2])))
+# print(crc8(bytearray([1, 2])))
+
+
